@@ -41,6 +41,7 @@ async function init() {
       }
 
       // upload on S3
+      console.log("uploading: ", filePath);
       const command = PutObjectCommand({
         // bucket name
         Bucket: "",
@@ -51,8 +52,9 @@ async function init() {
 
       // upload objects to s3 bucket
       await s3Client.send(command);
-
-      console.log(`Process done...`);
+      console.log("uploaded: ", filePath);
     }
+
+    console.log(`Process done...`);
   });
 }
