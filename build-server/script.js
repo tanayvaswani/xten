@@ -31,7 +31,7 @@ async function init() {
     console.log(data.toString());
   });
 
-  // On completion
+  // on completion
   p.on("close", async () => {
     console.log("Build Complete!");
     const distDirPath = path.join(__dirname, "output", "dist");
