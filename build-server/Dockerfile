@@ -14,4 +14,9 @@ COPY main.sh main.sh
 COPY package*.json .
 COPY script.js script.js
 
+RUN npm install
+
+RUN chmod +x main.sh
+RUN chmod +x script.js
+
 ENTRYPOINT [ "/home/app/main.sh" ]
