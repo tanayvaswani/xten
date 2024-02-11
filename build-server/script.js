@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 const mime = require("mime-types");
+require("dotenv").config();
 
 const s3Client = new S3Client({
   region: "",
@@ -11,6 +12,8 @@ const s3Client = new S3Client({
     sessionToken: "",
   },
 });
+
+const PROJECT_ID = process.env.PROJECT_ID;
 
 async function init() {
   console.log(`Executing script.js`);
@@ -45,7 +48,7 @@ async function init() {
       const command = PutObjectCommand({
         // bucket name
         Bucket: "",
-        Key: `__outputs/${process.env.PROJECT_ID}/${filePath}`,
+        Key: `__outputs/${PROJECT_ID}/${filePath}`,
         Body: fs.createReadStream(filePath),
         ContentType: mime.lookup(filePath),
       });
