@@ -19,6 +19,7 @@ async function init() {
   console.log(`Executing script.js`);
   const outDirPath = path.join(__dirname, "output");
 
+  // process
   const p = exec(`cd ${outDirPath} && npm install && npm run build`);
 
   // logs

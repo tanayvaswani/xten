@@ -11,5 +11,7 @@ RUN apt-get install git -y
 WORKDIR /home/app
 
 COPY main.sh main.sh
+COPY package*.json .
+COPY script.js script.js
 
 ENTRYPOINT [ "/home/app/main.sh" ]
