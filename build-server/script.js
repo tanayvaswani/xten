@@ -6,10 +6,10 @@ const mime = require("mime-types");
 require("dotenv").config();
 
 const s3Client = new S3Client({
-  region: "",
+  region: process.env.S3_REGION,
   credentials: {
-    accessKeyId: "",
-    sessionToken: "",
+    accessKeyId: process.env.S3_ACCESS_KEY,
+    sessionToken: process.env.S3_SESSION_TOKEN,
   },
 });
 
